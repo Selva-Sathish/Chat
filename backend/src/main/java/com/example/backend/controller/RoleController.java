@@ -36,6 +36,7 @@ class RoleController {
 
     @GetMapping("roles/{id}")
     public ResponseEntity<ApiRespone<Role>> getRole(@PathVariable int id){
+        
         Role data = roleService.getRollById(id);
         if(data == null) return ResponseEntity.ok(new ApiRespone<>(false, null, "Roles Not Found"));
         ApiRespone<Role> response = new ApiRespone<>(true, data, "Roles fetched successfully...");
