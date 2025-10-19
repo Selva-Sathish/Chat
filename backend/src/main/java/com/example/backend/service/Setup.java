@@ -12,7 +12,6 @@ import com.example.backend.models.User;
 import com.example.backend.repo.RoleRepository;
 import com.example.backend.repo.UserRepository;
 
-import java.util.Set;
 @Component
 public class Setup implements CommandLineRunner {
     private final UserRepository userRepository;
