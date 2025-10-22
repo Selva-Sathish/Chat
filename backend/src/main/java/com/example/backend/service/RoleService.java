@@ -26,12 +26,17 @@ public class RoleService {
         roleRepository.save(newrole);
     }
 
+    public Page<Role> getRoleByName(String name, Pageable pageable){
+        return roleRepository.findByNameContainingIgnoreCase(name, pageable);
+    }
+
     public Page<Role> getAllRoles(Pageable pageable){
         return roleRepository.findAll(pageable);
     }
 
 
-    public Role getRollById(int id) {
-        return roleRepository.findById(id);
+    public Role getRollById(Long id) {
+        return roleRepository.findById(id).orElseThrow(()-> new RuntimeException("Role not Found"));
     }
+
 }
